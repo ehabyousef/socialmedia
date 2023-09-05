@@ -96,16 +96,16 @@ function createPost() {
 function showErrDetails(errorMassage) {
   document.getElementById("container").innerHTML += `
     <div
-        id="alrt-danger"
-        class="d-flex align-items-center justify-content-center position-absolute"
-        style="top: 80px; left: 50%; transform: translateX(-50%)"
+        id="alrt-danger-error"
+        class="d-flex align-items-center justify-content-center"
+        
       >
        <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
     </div>
 `;
   setTimeout(() => {
-    document.getElementById("alrt-danger").innerHTML = "";
-  }, 3000);
+    document.getElementById("alrt-danger-error").innerHTML = "";
+  }, 2000);
 }
 
 function closeForm() {

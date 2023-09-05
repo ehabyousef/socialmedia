@@ -66,21 +66,6 @@ function logOutStorage() {
   localStorage.removeItem("user");
   showLogBtn();
 }
-//show error function
-function showErrDetails(errorMassage) {
-  document.getElementById("container").innerHTML += `
-    <div
-        id="alrt-danger"
-        class="d-flex align-items-center justify-content-center position-absolute"
-        style="top: 80px; left: 50%; transform: translateX(-50%)"
-      >
-       <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
-    </div>
-`;
-  setTimeout(() => {
-    document.getElementById("alrt-danger").innerHTML = "";
-  }, 3000);
-}
 
 // create new post
 const token = localStorage.getItem("token");
@@ -98,8 +83,13 @@ function createPost() {
     .post(`https://tarmeezacademy.com/api/v1/posts`, formData, {
       headers: headers,
     })
-    .then((Response) => console.log(Response))
+    .then((Response) => {
+      const modal = document.getElementById("exampleModal");
+      const modainst = bootstrap.Modal.getInstance(modal);
+      modainst.hide();
+      console.log(Response);
+    })
     .catch(function (error) {
-      showErrDetails(error.response.data.errors.image[1]);
+      alert(error.response.data.errors.image[1]);
     });
 }

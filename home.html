@@ -109,13 +109,19 @@
                   <label for="message-text" class="col-form-label fs-5"
                     >body:</label
                   >
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <textarea
+                    onclick="handleCreatePost()"
+                    class="form-control"
+                    id="message-text"
+                    name="body"
+                  ></textarea>
                 </div>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label fs-5"
                     >image:</label
                   >
-                  <input type="file" class="form-control" id="recipient-name" />
+                  <input onclick="handleCreatePost()" type="file"
+                  class="form-control" id="recipient-name" name="image/>
                 </div>
               </form>
             </div>

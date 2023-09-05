@@ -76,8 +76,10 @@ let bodyPost = document.getElementById("message-text");
 let imagePost = document.getElementById("recipient-name");
 // console.log(imagePost.value);
 
+function handleCreatePost(e) {
+  postdata[e.name] = e.value;
+}
+
 function createPost() {
-  axios.post("https://tarmeezacademy.com/api/v1/posts").then(((response) => {
-    
-  }))
+  axios.post("https://tarmeezacademy.com/api/v1/posts").then((response) => {});
 }

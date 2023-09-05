@@ -67,13 +67,3 @@ function logOutStorage() {
   showLogBtn();
 }
 // create new post
-
-let newPost = {
-  body: "",
-  image: "",
-};
-
-function handleCretePost(e) {
-  newPost[e.name] = e.value;
-  console.log(newPost);
-}

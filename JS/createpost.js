@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 let newPost = {
   body: "",

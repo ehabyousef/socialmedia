@@ -89,7 +89,7 @@ function createPost() {
       location.reload();
     })
     .catch(function (error) {
-      alert(error.response.data.errors.image[1]);
+      showErrDetails(error.response.data.errors.image[1]);
     });
 }
 
@@ -105,10 +105,8 @@ function showErrDetails(errorMassage) {
 `;
   setTimeout(() => {
     document.getElementById("alrt-danger").innerHTML = "";
-  }, 2000);
+  }, 3000);
 }
-
-
 
 function closeForm() {
   document.getElementById("createPost").classList.add("BTN-Hide");

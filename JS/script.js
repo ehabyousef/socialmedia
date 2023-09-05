@@ -84,12 +84,17 @@ function createPost() {
       headers: headers,
     })
     .then((Response) => {
-      const modal = document.getElementById("exampleModal");
-      const modainst = bootstrap.Modal.getInstance(modal);
-      modainst.hide();
+      const modal = document.getElementById("createPost");
+      modal.classList.add("BTN-Hide");
       console.log(Response);
     })
     .catch(function (error) {
       alert(error.response.data.errors.image[1]);
     });
+}
+function closeForm() {
+  document.getElementById("createPost").classList.add("BTN-Hide");
+}
+function openForm() {
+  document.getElementById("createPost").classList.remove("BTN-Hide");
 }

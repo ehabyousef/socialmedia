@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f0ecff;
+}
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(22 114 189);
+}
+
+.sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign svg {
+  width: 19px;
+}
+.sign svg path {
+  fill: white;
+}
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: 0.3s;
+}
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 10px;
+}
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+.BTN-Hide {
+  display: none;
+}
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+a {
+  text-decoration: none;
+}
+.form-appear {
+  display: none !important;
+}
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform ease-out 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 1.5em 3em;
+  width: 50%;
+  height: 60%;
+  background-color: #212121;
+  box-shadow: 16px 16px 20px rgb(0 0 0 / 25%), 9px 20px 16px #8b7a7a;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  color: black;
+}
+
+.form .form_control {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-size: 25px;
+}
+
+.form .form_control .label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transition: transform ease 0.2s;
+  transform: translate(0%, -50%);
+  font-size: 20px;
+  user-select: none;
+  pointer-events: none;
+  color: #b0b0b0;
+}
+
+.form .form_control .input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: box-shadow ease 0.2s;
+  box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+    inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+}
+
+.form .form_control .input:focus,
+.form .form_control .input:valid {
+  box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+    inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
+}
+
+.form .form_control .input:focus + .label,
+.form .form_control .input:valid + .label {
+  transform: translate(-150%, -50%);
+}
+
+.form button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 22px;
+  border-radius: 5px;
+  transition: box-shadow ease 0.1s;
+  box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%),
+    inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+}
+.form button:active {
+  box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+    inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
+}
+.bottom_text {
+  font-size: 18px;
+  color: white;
+}
+.bottom_text .swtich {
+  font-weight: 700;
+  cursor: pointer;
+}
+/* add  */
+.button {
+  position: relative;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid #2d8cf0;
+  box-shadow: 4px 4px #2d8cf0;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.button,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(22px);
+  color: #323232;
+  font-weight: 600;
+}
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px #2d8cf0;
+}

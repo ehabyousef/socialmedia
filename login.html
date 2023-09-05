@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!--  import bootstrap  -->
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- import fontaweosome -->
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- import css file  -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      id="container"
+      class="container position-relative"
+      style="height: 90vh"
+    >
+      <div class="slider">
+        <div id="form" class="form rounded-4" onsubmit="loginUser()">
+          <span class="title">Login</span>
+          <div class="form_control">
+            <input
+              onchange="handleLogin(this)"
+              required=""
+              class="input"
+              type="text"
+              name="username"
+            />
+            <label class="label">Username</label>
+          </div>
+          <div class="form_control">
+            <input
+              onchange="handleLogin(this)"
+              required=""
+              class="input"
+              type="password"
+              name="password"
+            />
+            <label class="label">Password</label>
+          </div>
+          <button onclick="loginUser()">Login</button>
+
+          <span class="bottom_text"
+            >Don't have an account?
+            <label onclick="gotoRegister()" class="swtich" for="register_toggle"
+              >Sign Up</label
+            >
+          </span>
+        </div>
+        <div
+          id="form"
+          class="form rounded-4 form-appear"
+          onsubmit="Registeruser()"
+        >
+          <span class="title">Sign Up</span>
+          <div class="form_control">
+            <input
+              onchange="handleRegister(this)"
+              required=""
+              class="input"
+              type="text"
+              name="username"
+            />
+            <label class="label">Username</label>
+          </div>
+          <div class="form_control">
+            <input
+              onchange="handleRegister(this)"
+              required=""
+              class="input"
+              type="text"
+              name="name"
+            />
+            <label class="label">Name</label>
+          </div>
+          <div class="form_control">
+            <input
+              onchange="handleRegister(this)"
+              required=""
+              class="input"
+              type="email"
+              name="email"
+            />
+            <label class="label">Email</label>
+          </div>
+          <div class="form_control">
+            <input
+              onchange="handleRegister(this)"
+              required=""
+              class="input"
+              type="password"
+              name="password"
+            />
+            <label class="label">Password</label>
+          </div>
+          <button onclick="Registeruser()">Sign Up</button>
+
+          <span class="bottom_text"
+            >Already have an account?
+            <label onclick="gotoLogin()" class="swtich" for="register_toggle"
+              >Sign In</label
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script src="logScript.js"></script>
+  </body>
+</html>

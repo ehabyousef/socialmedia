@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 let postCard = document.getElementById("post");
 axios
   .get("https://tarmeezacademy.com/api/v1/posts?limit=5")
@@ -75,4 +77,10 @@ let newPost = {
 function handleCretePost(e) {
   newPost[e.name] = e.value;
   console.log(newPost);
+}
+
+function createNewPost() {
+  axios.post("https://tarmeezacademy.com/api/v1/posts").then((response) => {
+    console.log(response);
+  })
 }

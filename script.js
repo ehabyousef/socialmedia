@@ -1,8 +1,7 @@
-const { default: axios } = require("axios");
-
 let postCard = document.getElementById("post");
+const baseurl = "https://tarmeezacademy.com/api/v1/";
 axios
-  .get("https://tarmeezacademy.com/api/v1/posts?limit=5")
+  .get(`${baseurl}posts?limit=5`)
   .then(function (response) {
     // handle success
     let posts = response.data.data;
@@ -77,10 +76,4 @@ let newPost = {
 function handleCretePost(e) {
   newPost[e.name] = e.value;
   console.log(newPost);
-}
-
-function createNewPost() {
-  axios.post("https://tarmeezacademy.com/api/v1/posts").then((response) => {
-    console.log(response);
-  })
 }

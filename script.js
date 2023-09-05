@@ -71,3 +71,7 @@ let newPost = {
   body: "",
   image: "",
 };
+
+function handleCretePost(e) {
+  newPost[e.name] = e.value;
+}

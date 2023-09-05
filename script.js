@@ -46,14 +46,17 @@ axios
 function showLogBtn() {
   let loginBtn = document.getElementById("loginBtn");
   let logoutBtn = document.getElementById("logoutBtn");
+  let addPost = document.getElementById("addPost");
 
   let taken = localStorage.getItem("token");
   if (taken == null) {
     logoutBtn.classList.add("BTN-Hide");
     loginBtn.classList.remove("BTN-Hide");
+    addPost.classList.add("BTN-Hide");
   } else {
     logoutBtn.classList.remove("BTN-Hide");
     loginBtn.classList.add("BTN-Hide");
+    addPost.classList.remove("BTN-Hide");
   }
 }
 showLogBtn();

@@ -1,4 +1,3 @@
-const baseurl = "https://tarmeezacademy.com/api/v1/";
 let newPost = {
   body: "",
   image: "",
@@ -10,7 +9,7 @@ function handleCretePost(e) {
 }
 function createPost() {
   axios
-    .post(`${baseurl}posts?`)
+    .post(`https://tarmeezacademy.com/api/v1/posts`)
     .then((Response) => console.log(Response))
     .catch((err) => console.log(err));
 }

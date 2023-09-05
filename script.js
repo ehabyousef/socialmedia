@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 let postCard = document.getElementById("post");
 axios
   .get("https://tarmeezacademy.com/api/v1/posts?limit=5")
@@ -67,19 +65,9 @@ function logOutStorage() {
   localStorage.removeItem("user");
   showLogBtn();
 }
-// creater new post
-let postdata = {
+// create new post
+
+let newPost = {
   body: "",
   image: "",
 };
-let bodyPost = document.getElementById("message-text");
-let imagePost = document.getElementById("recipient-name");
-// console.log(imagePost.value);
-
-function handleCreatePost(e) {
-  postdata[e.name] = e.value;
-}
-
-function createPost() {
-  axios.post("https://tarmeezacademy.com/api/v1/posts").then((response) => {});
-}

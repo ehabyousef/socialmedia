@@ -79,12 +79,11 @@ function showErrDetails(errorMassage) {
 `;
   setTimeout(() => {
     document.getElementById("alrt-danger").innerHTML = "";
-  }, 2000);
+  }, 3000);
 }
 
 // create new post
 const token = localStorage.getItem("token");
-
 function createPost() {
   const body = document.getElementById("postBody").value;
   const image = document.getElementById("postimage").files[0];
@@ -100,5 +99,7 @@ function createPost() {
       headers: headers,
     })
     .then((Response) => console.log(Response))
-    .catch((err) => console.log(err));
+    .catch(function (error) {
+      showErrDetails(error.response.data.errors.image[1]);
+    });
 }

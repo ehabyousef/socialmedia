@@ -83,7 +83,11 @@
     </div>
     <!-- end navbar  -->
     <!-- container  -->
-    <div class="container position-relative" style="height: 100vh">
+    <div
+      id="container"
+      class="container position-relative"
+      style="height: 100vh"
+    >
       <!-- modal to add post  -->
       <div
         class="modal fade"
@@ -110,7 +114,6 @@
                     >body:</label
                   >
                   <textarea
-                    onchange="handleCretePost(this)"
                     id="postBody"
                     class="form-control"
                     id="message-text"
@@ -122,7 +125,6 @@
                     >image:</label
                   >
                   <input
-                    onchange="handleCretePost(this)"
                     id="postimage"
                     type="file"
                     class="form-control"

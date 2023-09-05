@@ -65,7 +65,7 @@ body {
   transform: translate(2px, 2px);
 }
 .BTN-Hide {
-  display: none;
+  display: none !important;
 }
 .avatar {
   width: 50px;

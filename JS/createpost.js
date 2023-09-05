@@ -9,7 +9,7 @@ function handleCretePost(e) {
   newPost[e.name] = e.value;
   console.log(newPost);
 }
-function cretePost() {
+function createPost() {
   axios
     .post(`${baseurl}posts?`)
     .then((Response) => console.log(Response))

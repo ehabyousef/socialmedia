@@ -74,4 +74,5 @@ let newPost = {
 
 function handleCretePost(e) {
   newPost[e.name] = e.value;
+  console.log(newPost);
 }

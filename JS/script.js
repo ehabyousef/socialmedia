@@ -86,12 +86,30 @@ function createPost() {
     .then((Response) => {
       const modal = document.getElementById("createPost");
       modal.classList.add("BTN-Hide");
-      console.log(Response);
+      location.reload();
     })
     .catch(function (error) {
       alert(error.response.data.errors.image[1]);
     });
 }
+
+function showErrDetails(errorMassage) {
+  document.getElementById("container").innerHTML += `
+    <div
+        id="alrt-danger"
+        class="d-flex align-items-center justify-content-center position-absolute"
+        style="top: 80px; left: 50%; transform: translateX(-50%)"
+      >
+       <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
+    </div>
+`;
+  setTimeout(() => {
+    document.getElementById("alrt-danger").innerHTML = "";
+  }, 2000);
+}
+
+
+
 function closeForm() {
   document.getElementById("createPost").classList.add("BTN-Hide");
 }

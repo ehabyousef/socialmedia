@@ -18,11 +18,8 @@ function Registeruser() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  const imageInput = document.getElementById("image");
-  const image =
-    imageInput.files.length > 0
-      ? imageInput.files[0]
-      : imageInput.files["/images/pngegg (1).png"];
+  const image = document.getElementById("image").files[0];
+
   const formData = new FormData();
   formData.append("username", username);
   formData.append("name", name);

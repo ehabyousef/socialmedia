@@ -8,7 +8,7 @@ const handleInfiniteScroll = () => {
   const endOfPage =
     document.documentElement.scrollTop +
       document.documentElement.clientHeight >=
-    document.documentElement.scrollHeight;
+    document.documentElement.scrollHeight - 5;
   if (endOfPage && currentpage < lastpage) {
     getposts(currentpage++);
   }

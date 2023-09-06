@@ -2,22 +2,17 @@ let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
 // pagination
-
+let currentpage = 1;
+let lastpage = 1;
 const handleInfiniteScroll = () => {
   const endOfPage =
     window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
-  if (endOfPage) {
-    addCards(currentPage + 1);
+  if (endOfPage && currentpage < lastpage) {
+    getposts(currentpage++);
   }
 };
 
 window.addEventListener("scroll", handleInfiniteScroll);
-
-
-
-
-
-
 
 function getposts() {
   axios

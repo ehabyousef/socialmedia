@@ -64,7 +64,7 @@
           <span class="title">Sign Up</span>
           <div class="form_control">
             <input
-              onchange="handleRegister(this)"
+              id="username"
               required=""
               class="input"
               type="text"
@@ -74,7 +74,7 @@
           </div>
           <div class="form_control">
             <input
-              onchange="handleRegister(this)"
+              id="name"
               required=""
               class="input"
               type="text"
@@ -84,6 +84,7 @@
           </div>
           <div class="form_control">
             <input
+              id="email"
               onchange="handleRegister(this)"
               required=""
               class="input"
@@ -94,13 +95,23 @@
           </div>
           <div class="form_control">
             <input
-              onchange="handleRegister(this)"
+              id="password"
               required=""
               class="input"
               type="password"
               name="password"
             />
             <label class="label">Password</label>
+          </div>
+          <div class="form_control">
+            <input
+              id="image"
+              required=""
+              class="input"
+              type="file"
+              name="image"
+            />
+            <label class="label">Image</label>
           </div>
           <button onclick="Registeruser()">Sign Up</button>
 

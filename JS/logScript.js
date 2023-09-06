@@ -12,21 +12,21 @@ function gotoLogin() {
   forms[1].classList.add("form-appear");
   forms[0].classList.remove("form-appear");
 }
-let userData = {
-  username: "",
-  password: "",
-  name: "",
-  email: "",
-};
-
-function handleRegister(e) {
-  userData[e.name] = e.value;
-  console.log(userData);
-}
 
 function Registeruser() {
+  const username = document.getElementById("username").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const image = document.getElementById("image").files[0];
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("password", password);
+  formData.append("image", image);
   axios
-    .post("https://tarmeezacademy.com/api/v1/register", userData)
+    .post("https://tarmeezacademy.com/api/v1/register", formData)
     .then(function (response) {
       console.log(response);
       // localStorage.setItem("token", response.data.token);

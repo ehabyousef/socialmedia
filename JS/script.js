@@ -9,7 +9,7 @@ axios
       let card = `
         <div class="card rounded-4 my-4 w-75">
           <div class="card-header d-flex align-items-center gap-3">
-            <img class="avatar" src="images/pngegg (1).png" alt="" srcset="" />
+            <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
             <p class="mb-0">${post.author.username}</p>
           </div>
           <div class="card-body">

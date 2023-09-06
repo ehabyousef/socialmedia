@@ -14,12 +14,13 @@ const handleInfiniteScroll = () => {
 
 window.addEventListener("scroll", handleInfiniteScroll);
 
-function getposts() {
+function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=3`)
+    .get(`${baseurl}posts?limit=3&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;
+      lastpage = response.data.meta.last_page;
       for (const post of posts) {
         let card = `
         <div class="card rounded-4 my-4 w-75">

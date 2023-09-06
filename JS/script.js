@@ -1,12 +1,14 @@
 let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
-axios
-  .get(`${baseurl}posts?limit=5`)
-  .then(function (response) {
-    // handle success
-    let posts = response.data.data;
-    for (const post of posts) {
-      let card = `
+
+function getposts() {
+  axios
+    .get(`${baseurl}posts?limit=5`)
+    .then(function (response) {
+      // handle success
+      let posts = response.data.data;
+      for (const post of posts) {
+        let card = `
         <div class="card rounded-4 my-4 w-75">
           <div class="card-header d-flex align-items-center gap-3">
             <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
@@ -27,23 +29,24 @@ axios
           </div>
         </div>
         `;
-      postCard.innerHTML += card;
-      let currnetpostTag = `post-tag-${post.id}`;
-      document.getElementById(currnetpostTag).innerHTML = "";
-      const tags = post.tags;
-      for (const tag of tags) {
-        let con = `
+        postCard.innerHTML += card;
+        let currnetpostTag = `post-tag-${post.id}`;
+        document.getElementById(currnetpostTag).innerHTML = "";
+        const tags = post.tags;
+        for (const tag of tags) {
+          let con = `
           <div class="btn btn-secondary">${tag.name}</div>
         `;
-        document.getElementById(currnetpostTag).innerHTML += con;
+          document.getElementById(currnetpostTag).innerHTML += con;
+        }
       }
-    }
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  });
-
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+}
+getposts();
 function showLogBtn() {
   let loginBtn = document.getElementById("loginBtn");
   let logoutBtn = document.getElementById("logoutBtn");

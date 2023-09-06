@@ -1,9 +1,27 @@
 let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
+// pagination
+
+const handleInfiniteScroll = () => {
+  const endOfPage =
+    window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+  if (endOfPage) {
+    addCards(currentPage + 1);
+  }
+};
+
+window.addEventListener("scroll", handleInfiniteScroll);
+
+
+
+
+
+
+
 function getposts() {
   axios
-    .get(`${baseurl}posts?limit=5`)
+    .get(`${baseurl}posts?limit=3`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;

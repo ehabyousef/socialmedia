@@ -43,16 +43,7 @@ function getposts(page = 1) {
               <div id="post-tag-${post.id}" class="tags mx-2"></div>
             </div>
           </div>
-          <div class="com m-2" style="background-color: #f1f1f1">
-            <div class="d-flex align-items-center gap-3 p-2">
-              <img class="rounded-circle" src=${post.author.profile_image} alt=""
-              / width="50px" height="50px">
-              <b>${post.author.name}</b>
-            </div>
-            <div class="p-4">
-              <p class="mb-0 p-2">${post.body}</p>
-            </div>
-          </div>
+          
         </div>
         `;
         postCard.innerHTML += card;
@@ -128,18 +119,21 @@ function createPost() {
 }
 
 function showErrDetails(errorMassage) {
-  document.getElementById("container").innerHTML += `
-    <div
-        id="alrt-danger-error"
-        class="d-flex align-items-center justify-content-center"
-        
-      >
-       <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
-    </div>
-`;
+  let container = document.getElementById("container");
+  container.innerHTML += `
+      <div
+          id="alrt-danger-error"
+          class="d-flex align-items-center justify-content-center"
+          
+        >
+        <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
+      </div>
+  `;
   setTimeout(() => {
-    document.getElementById("alrt-danger-error").innerHTML = "";
-  }, 2000);
+    let alertMessage = document.getElementById("alrt-danger-error");
+    alertMessage.innerHTML = "";
+    alertMessage.remove();
+  }, 1500);
 }
 
 function closeForm() {
@@ -215,8 +209,9 @@ function showCurrentPost(postId) {
                 name="comment"
                 id="commentBody"
                 placeholder="Add  Your Comment"
+                required
               />
-              <div onclick="createComment(${postId})" class="btn btn-outline-dark w-25">send</div>
+              <div onclick="create(${postId})" class="btn btn-outline-dark w-25">send</div>
             </div>
           </div>
         </div>
@@ -238,10 +233,9 @@ function showCurrentPost(postId) {
     });
 }
 
-function createComment(postid) {
+function create(postid) {
   let commentBody = document.getElementById("commentBody").value;
   console.log("work");
-  console.log(object);
   let param = {
     body: commentBody,
   };
@@ -254,9 +248,11 @@ function createComment(postid) {
       headers: headers,
     })
     .then((Response) => {
-      console.log(Response.data);
+      console.log(Response.data.data);
+      showCurrentPost(postid);
     })
     .catch(function (error) {
       console.log(error);
+      showErrDetails(error.response.data.message);
     });
 }

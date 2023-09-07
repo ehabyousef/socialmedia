@@ -231,14 +231,14 @@ a {
 
 /* modal  */
 .orange {
-  color: #ff7a01;
+  color: #d90429;
 }
 
 .form-container {
   margin: 30px;
-  background-color: #001925;
+  background-color: #8d99ae;
   padding: 30px;
-  border-left: 5px solid #ff7a01;
+  border-left: 5px solid #d90429;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -257,7 +257,7 @@ a {
 .form-container .form-2 .input {
   color: #87a4b6;
   width: 100%;
-  background-color: #002733;
+  background-color: #3b494d;
   border: none;
   outline: none;
   padding: 10px;
@@ -268,7 +268,7 @@ a {
 }
 
 .form-container .form-2 .input:focus {
-  border-left: 5px solid #ff7a01;
+  border-left: 5px solid #d90429;
 }
 
 .form-container .form-2 .textarea {
@@ -276,8 +276,8 @@ a {
   padding: 10px;
   border: none;
   outline: none;
-  background-color: #013747;
-  color: #ff7a01;
+  background-color: #d1d5d6;
+  color: #d90429;
   font-weight: bold;
   resize: none;
   max-height: 150px;
@@ -287,7 +287,7 @@ a {
 }
 
 .form-container .form-2 .textarea:focus {
-  border-left: 5px solid #ff7a01;
+  border-left: 5px solid #d90429;
 }
 
 .form-container .form-2 .button-container {
@@ -297,9 +297,9 @@ a {
 
 .form-container .form-2 .button-container .send-button {
   flex-basis: 70%;
-  background: #ff7a01;
+  background: #2b2d42;
   padding: 10px;
-  color: #001925;
+  color: #8d99ae;
   text-align: center;
   font-weight: bold;
   border: 1px solid transparent;
@@ -309,12 +309,12 @@ a {
 
 .form-container .form-2 .button-container .send-button:hover {
   background: transparent;
-  border: 1px solid #ff7a01;
-  color: #ff7a01;
+  border: 1px solid #2b2d42;
+  color: #2b2d42;
 }
 
 .form-container .form-2 .button-container .reset-button-container {
-  filter: drop-shadow(1px 1px 0px #ff7a01);
+  filter: drop-shadow(1px 1px 0px #2b2d42);
   flex-basis: 30%;
   cursor: pointer;
 }
@@ -327,9 +327,9 @@ a {
   position: relative;
   text-align: center;
   padding: 10px;
-  color: #ff7a01;
+  color: #2b2d42;
   font-weight: bold;
-  background: #001925;
+  background: #8d99ae;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -345,8 +345,8 @@ a {
   .button-container
   .reset-button-container
   .reset-button:hover {
-  background: #ff7a01;
-  color: #001925;
+  background: #d90429;
+  color: #edf2f4;
 }
 
 #alrt-danger-error {
@@ -414,5 +414,5 @@ a {
 }
 
 #commentBody:focus {
-  border-left: 5px solid #ff7a01;
+  border-left: 5px solid #d90429;
 }

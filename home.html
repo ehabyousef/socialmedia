@@ -20,9 +20,9 @@
   </head>
   <body>
     <!-- start navbar  -->
-    <div class="d-flex justify-content-center mb-4 p-0">
+    <div id="navBar" class="d-flex sticky-top justify-content-center mb-4 p-0">
       <div class="col-9">
-        <nav class="navbar sticky-top navbar-expand-lg bg-white shadow rounded">
+        <nav class="navbar navbar-expand-lg bg-white shadow rounded">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">ellemby</a>
             <button
@@ -97,6 +97,15 @@
     </div>
     <!-- end navbar  -->
     <!-- container  -->
+    <!--start show post  -->
+    <div
+      onclick="dasd()"
+      id="showPost"
+      class="d-flex flex-column align-items-center rounded-4"
+    >
+    
+    </div>
+    <!--end show post  -->
     <div
       id="container"
       class="container position-relative"
@@ -155,28 +164,7 @@
       </div>
 
       <!-- start post card  -->
-      <div id="post" class="post d-flex flex-column align-items-center">
-        <!-- <div class="card rounded-4 my-4">
-          <div class="card-header d-flex align-items-center gap-3">
-            <img class="avatar" src="images/pngegg (1).png" alt="" srcset="" />
-            <p class="mb-0">Ehab yousef</p>
-          </div>
-          <div class="card-body">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab,
-              molestias.
-            </p>
-            <img class="w-100" src="images/samuray 2.jpg" alt="" srcset="" />
-            <h6 class="p-2 opacity-75">2 min ago</h6>
-            <hr />
-            <div class="d-flex align-items-center gap-2 p-2">
-              <i class="fa-solid fa-pen-fancy"></i>
-              <p class="mb-2">(3) comments</p>
-            </div>
-          </div>
-        </div> -->
-      </div>
-
+      <div id="post" class="post d-flex flex-column align-items-center"></div>
       <!-- end post card  -->
     </div>
 

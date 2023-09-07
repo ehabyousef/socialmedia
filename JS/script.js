@@ -152,7 +152,7 @@ function showCurrentPost(postId) {
   // get api
   console.log(postId);
   axios
-    .get(`${baseurl}posts/${postId}`)
+    .get(`${baseurl}posts/1`)
     .then(function (response) {
       let post = response.data.data;
       console.log(post);

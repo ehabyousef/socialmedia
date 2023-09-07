@@ -248,7 +248,7 @@ function createComment(postid) {
   const headers = {
     authorization: `Bearer ${token}`,
   };
-  axios.post(`https://tarmeezacademy.com/api/v1/posts`, param, {
+  axios.post(`${baseurl}posts/${postid}/comments`, param, {
     headers: headers,
   });
 }

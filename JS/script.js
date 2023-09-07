@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
@@ -162,7 +164,7 @@ function showCurrentPost(postId) {
   // get api
   console.log(postId);
   axios
-    .get(`${baseurl}posts/1`)
+    .get(`${baseurl}posts/${postId}`)
     .then(function (response) {
       let post = response.data.data;
       console.log(post);
@@ -209,13 +211,14 @@ function showCurrentPost(postId) {
             <div class="com m-2" style="background-color: #f1f1f1">
                 ${commentData}
             </div>
-             <div class="m-3">
+             <div class="m-3 d-flex align-items-center flex-column">
               <input
                 type="text"
                 name="comment"
-                id="comment"
-                placeholder="Add-Comment"
+                id="commentBody"
+                placeholder="Add  Your Comment"
               />
+              <div onclick="createComment(${postId})" class="btn btn-outline-dark w-25">send</div>
             </div>
           </div>
         </div>

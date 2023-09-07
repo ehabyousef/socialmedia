@@ -18,7 +18,7 @@ const handleInfiniteScroll = () => {
 
 function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=5&page=${page}`)
+    .get(`${baseurl}posts?limit=2&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;

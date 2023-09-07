@@ -157,6 +157,21 @@ function showCurrentPost(postId) {
       let post = response.data.data;
       console.log(post);
       const comments = post.comments;
+      let commentData = ``;
+      for (const comment of comments) {
+        commentData += `
+             <div class="d-flex align-items-center gap-3 p-2">
+                <img class="rounded-circle" src=${comment.author.profile_image} alt="" /
+                width="50px" height="50px">
+                <b>${comment.author.name}</b>
+             </div>
+             <div class="p-3">
+                <p class="mb-0">
+                  ${comment.body}
+                </p>
+             </div>
+        `;
+      }
       let con = `
         <div class="content">
           <div onclick="closePost()" class="close">
@@ -181,22 +196,11 @@ function showCurrentPost(postId) {
               </div>
             </div>
             <div class="com m-2" style="background-color: #f1f1f1">
-          <div class="d-flex align-items-center gap-3 p-2">
-            <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
-            width="50px" height="50px">
-            <b>user</b>
-          </div>
-          <div class="p-3">
-            <p class="mb-0">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Deserunt, omnis!
-            </p>
+              ${commentData}
+              </div>
+            </div>
           </div>
         </div>
-          </div>
-      </div>
       `;
       showPost.innerHTML = con;
       let currnetpostTag = `post-tag-${post.id}`;

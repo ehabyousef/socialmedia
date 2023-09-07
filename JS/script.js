@@ -156,6 +156,7 @@ function showCurrentPost(postId) {
     .then(function (response) {
       let post = response.data.data;
       console.log(post);
+      const comments = post.comments;
       let con = `
         <div class="content">
           <div onclick="closePost()" class="close">
@@ -179,6 +180,21 @@ function showCurrentPost(postId) {
                 <div id="post-tag-${post.id}" class="tags mx-2"></div>
               </div>
             </div>
+            <div class="com m-2" style="background-color: #f1f1f1">
+          <div class="d-flex align-items-center gap-3 p-2">
+            <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+            width="50px" height="50px">
+            <b>user</b>
+          </div>
+          <div class="p-3">
+            <p class="mb-0">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Deserunt, omnis!
+            </p>
+          </div>
+        </div>
           </div>
       </div>
       `;

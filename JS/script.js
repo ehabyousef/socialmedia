@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
@@ -239,4 +237,18 @@ function showCurrentPost(postId) {
       // handle error
       console.log(error.response.data);
     });
+}
+
+function createComment(postid) {
+  let commentBody = document.getElementById("commentBody").value;
+  let param = {
+    body: commentBody,
+  };
+  let token = localStorage.getItem("token");
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  axios.post(`https://tarmeezacademy.com/api/v1/posts`, param, {
+    headers: headers,
+  });
 }

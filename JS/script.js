@@ -231,7 +231,6 @@ function showCurrentPost(postId) {
         `;
         document.getElementById(currnetpostTag).innerHTML += con;
       }
-      console.log(response.data.data);
     })
     .catch(function (error) {
       // handle error
@@ -241,6 +240,8 @@ function showCurrentPost(postId) {
 
 function createComment(postid) {
   let commentBody = document.getElementById("commentBody").value;
+  console.log("work");
+  console.log(object);
   let param = {
     body: commentBody,
   };
@@ -248,7 +249,14 @@ function createComment(postid) {
   const headers = {
     authorization: `Bearer ${token}`,
   };
-  axios.post(`${baseurl}posts/${postid}/comments`, param, {
-    headers: headers,
-  });
+  axios
+    .post(`${baseurl}posts/${postid}/comments`, param, {
+      headers: headers,
+    })
+    .then((Response) => {
+      console.log(Response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }

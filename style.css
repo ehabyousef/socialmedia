@@ -386,3 +386,9 @@ a {
   z-index: 10;
   cursor: pointer;
 }
+
+.com {
+    background-color: #f1f1f1;
+    overflow-y: scroll;
+    max-height: 300px;
+  }

@@ -14,7 +14,7 @@ const handleInfiniteScroll = () => {
   }
 };
 
-window.addEventListener("scroll", handleInfiniteScroll);
+// window.addEventListener("scroll", handleInfiniteScroll);
 
 function getposts(page = 1) {
   axios

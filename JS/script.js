@@ -43,7 +43,95 @@ function getposts(page = 1) {
               <div id="post-tag-${post.id}" class="tags mx-2"></div>
             </div>
           </div>
-          <div class="com mx-2" style="background-color: #f1f1f1; overflow-y: scroll; max-height: 300px;">
+          <div class="com mx-2">
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
+              width="50px" height="50px">
+              <b>user</b>
+            </div>
+            <div class="conten">
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt, omnis!
+              </p>
+            </div>
             <div class="d-flex align-items-center">
               <img class="rounded-circle" src="/images/pngegg (1).png" alt="" /
               width="50px" height="50px">

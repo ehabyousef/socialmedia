@@ -43,6 +43,16 @@ function getposts(page = 1) {
               <div id="post-tag-${post.id}" class="tags mx-2"></div>
             </div>
           </div>
+          <div class="com m-2" style="background-color: #f1f1f1">
+            <div class="d-flex align-items-center gap-3 p-2">
+              <img class="rounded-circle" src=${post.author.profile_image} alt=""
+              / width="50px" height="50px">
+              <b>${post.author.name}</b>
+            </div>
+            <div class="p-4">
+              <p class="mb-0 p-2">${post.body}</p>
+            </div>
+          </div>
         </div>
         `;
         postCard.innerHTML += card;
@@ -170,6 +180,7 @@ function showCurrentPost(postId) {
                   ${comment.body}
                 </p>
              </div>
+             
         `;
       }
       let con = `
@@ -196,8 +207,15 @@ function showCurrentPost(postId) {
               </div>
             </div>
             <div class="com m-2" style="background-color: #f1f1f1">
-              ${commentData}
-              </div>
+                ${commentData}
+            </div>
+             <div class="m-3">
+              <input
+                type="text"
+                name="comment"
+                id="comment"
+                placeholder="Add-Comment"
+              />
             </div>
           </div>
         </div>

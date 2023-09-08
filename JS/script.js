@@ -258,15 +258,56 @@ function createComm(postid) {
       showErrDetails(error.response.data.message);
     });
 }
-
-function editPost(post) {
+let editPostId;
+function editPost(postId) {
   axios
-    .get(`https://tarmeezacademy.com/api/v1/posts/${post}`)
+    .get(`https://tarmeezacademy.com/api/v1/posts/${postId}`)
     .then((Response) => {
-      console.log(Response.data.data);
+      let post = Response.data.data;
+      console.log(post);
+      const editModal = document.getElementById("editePost");
+      const body = document.getElementById("editpostBody");
+      // const image = document.getElementById("editpostimage");
+      // image.files[0] = image.files[post.image];
+      body.value = post.body;
+      editPostId = postId;
+      console.log(body.value);
+      editModal.classList.remove("BTN-Hide");
     })
     .catch(function (error) {
       console.log(error);
     });
-  // alert(post);
+}
+
+function updatePost() {
+  const body = document.getElementById("editpostBody").value;
+  const image = document.getElementById("editpostimage").files[0];
+  const formData = new FormData();
+  formData.append("body", body);
+  formData.append("image", image);
+
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  formData.append("_method", "PUT");
+
+  axios
+    .post(`https://tarmeezacademy.com/api/v1/posts/${editPostId}`, formData, {
+      headers: headers,
+    })
+    .then((response) => {
+      const editModal = document.getElementById("editPost");
+      editModal.classList.add("BTN-Hide");
+      location.reload();
+      console.log(editPostId);
+    })
+    .catch(function (error) {
+      showErrDetails(error);
+      console.log(editPostId);
+    });
+}
+
+function closeEditForm() {
+  document.getElementById("editPost").classList.add("BTN-Hide");
+  console.log("closeEditForm");
 }

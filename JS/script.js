@@ -26,10 +26,12 @@ function getposts(page = 1) {
       for (const post of posts) {
         let card = `
         <div  class="card rounded-4 my-4 w-75 " >
-          <div class="card-header d-flex align-items-center gap-3">
-            <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
-            <p class="mb-0">${post.author.username}</p>
-              
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div class=" d-flex align-items-center gap-3 ">
+              <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
+              <p class="mb-0">${post.author.username}</p>
+            </div>
+            <div class="btn btn-outline-info fw-bold">edit-post</div>
           </div>
           <div onclick="showCurrentPost(${post.id})" class="card-body" style="cursor: pointer;">
             <p>

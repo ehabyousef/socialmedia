@@ -133,6 +133,7 @@
     >
       <!-- modal to add post  -->
       <div id="createPost" class="form-container shadow BTN-Hide">
+        <h2 class="p-2 opacity-75">Add new post</h2>
         <div class="form-2">
           <textarea
             placeholder="Body"
@@ -153,6 +154,30 @@
           </div>
         </div>
       </div>
+      <!--start edit the post  -->
+      <div id="editePost" class="form-container shadow BTN-Hide">
+        <h2 class="p-2 opacity-75">Edit post</h2>
+        <div class="form-2">
+          <textarea
+            placeholder="Body"
+            rows="10"
+            cols="30"
+            id="editpostBody"
+            name="message"
+            class="textarea fs-4"
+          ></textarea>
+          <input id="editpostimage" type="file" name="image" class="input" />
+          <div class="button-container">
+            <div onclick="editPost()" class="send-button">update</div>
+            <div class="reset-button-container">
+              <div onclick="closeForm()" id="reset-btn" class="reset-button">
+                Close
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end edit the post  -->
       <!-- add post btn  -->
       <div id="addPost" class="">
         <button

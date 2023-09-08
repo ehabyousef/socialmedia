@@ -258,6 +258,15 @@ function createComm(postid) {
       showErrDetails(error.response.data.message);
     });
 }
-function editPost() {
-  alert("dada");
+
+function editPost(post) {
+  axios
+    .get(`https://tarmeezacademy.com/api/v1/posts/${post}`)
+    .then((Response) => {
+      console.log(Response.data.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  // alert(post);
 }

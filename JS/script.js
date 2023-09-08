@@ -297,7 +297,7 @@ function updatePost() {
     })
     .then((response) => {
       document.getElementById("editePost").classList.add("BTN-Hide");
-      getposts();
+      location.reload();
       console.log(response);
     })
     .catch((error) => {

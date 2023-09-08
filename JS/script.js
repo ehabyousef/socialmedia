@@ -296,18 +296,16 @@ function updatePost() {
       headers: headers,
     })
     .then((response) => {
-      const editModal = document.getElementById("editPost");
-      editModal.classList.add("BTN-Hide");
-      location.reload();
-      console.log(editPostId);
+      document.getElementById("editePost").classList.add("BTN-Hide");
+      getposts();
+      console.log(response);
     })
-    .catch(function (error) {
+    .catch((error) => {
       showErrDetails(error);
-      console.log(editPostId);
+      console.log(error);
     });
 }
 
 function closeEditForm() {
-  document.getElementById("editPost").classList.add("BTN-Hide");
-  console.log("closeEditForm");
+  document.getElementById("editePost").classList.add("BTN-Hide");
 }

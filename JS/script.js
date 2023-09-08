@@ -31,7 +31,7 @@ function getposts(page = 1) {
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
               <p class="mb-0">${post.author.username}</p>
             </div>
-            <div class="btn btn-outline-info fw-bold">edit-post</div>
+            <div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>
           </div>
           <div onclick="showCurrentPost(${post.id})" class="card-body" style="cursor: pointer;">
             <p>
@@ -257,4 +257,7 @@ function create(postid) {
       console.log(error);
       showErrDetails(error.response.data.message);
     });
+}
+function editPost() {
+  alert("dada");
 }

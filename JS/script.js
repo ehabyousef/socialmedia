@@ -213,7 +213,7 @@ function showCurrentPost(postId) {
                 placeholder="Add  Your Comment"
                 required
               />
-              <div onclick="create(${postId})" class="btn btn-outline-dark w-25">send</div>
+              <div onclick="createComm(${postId})" class="btn btn-outline-dark w-25">send</div>
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@ function showCurrentPost(postId) {
     });
 }
 
-function create(postid) {
+function createComm(postid) {
   let commentBody = document.getElementById("commentBody").value;
   console.log("work");
   let param = {

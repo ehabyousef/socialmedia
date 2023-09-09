@@ -69,7 +69,7 @@ function getposts(page = 1) {
           `;
         }
         let card = `
-        <div  class="card rounded-4 my-4 w-75 " >
+        <div  class="card rounded-4 my-4 w-50  " >
           <div class="card-header d-flex justify-content-between align-items-center">
             <div onclick="navigateUser(${post.author.id})" class=" d-flex align-items-center gap-3 "  style="cursor: pointer;">
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />

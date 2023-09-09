@@ -2,6 +2,7 @@ let postCard = document.getElementById("post");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
 // pagination
+
 let currentpage = 1;
 let lastpage = 1;
 const handleInfiniteScroll = () => {
@@ -24,6 +25,15 @@ function getposts(page = 1) {
       let posts = response.data.data;
       lastpage = response.data.meta.last_page;
       for (const post of posts) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        let rightUser = user.id == post.id;
+
+        let editBtn = ``;
+        if (rightUser) {
+          editBtn = `<div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>`;
+        } else {
+          editBtn = "";
+        }
         let card = `
         <div  class="card rounded-4 my-4 w-75 " >
           <div class="card-header d-flex justify-content-between align-items-center">
@@ -31,7 +41,7 @@ function getposts(page = 1) {
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
               <p class="mb-0">${post.author.username}</p>
             </div>
-            <div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>
+           ${editBtn}
           </div>
           <div onclick="showCurrentPost(${post.id})" class="card-body" style="cursor: pointer;">
             <p>

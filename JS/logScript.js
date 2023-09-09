@@ -34,7 +34,7 @@ function Registeruser() {
       gotoLogin();
     })
     .catch(function (error) {
-      // alert(error.response.data.message);
+
       showErrDetails(error.response.data.message);
     });
 }

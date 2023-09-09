@@ -24,10 +24,10 @@ if (!localStorage.getItem("user")) {
       id="not-signed"
         class="content h-100 w-100 d-flex flex-column gap-3 align-items-center justify-content-center"
       >
-        <h4>you shold login first</h4>
+        <h4>you shold login</h4>
         <a href="login.html">
           <div class="btn btn-outline-dark">LogIn</div> </a
-        >s
+        >
       </div>
   `;
 }

@@ -14,7 +14,6 @@ const handleInfiniteScroll = () => {
     getposts(currentpage++);
   }
 };
-
 window.addEventListener("scroll", handleInfiniteScroll);
 
 if (!localStorage.getItem("user")) {
@@ -33,7 +32,7 @@ if (!localStorage.getItem("user")) {
 }
 function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=10&page=${page}`)
+    .get(`${baseurl}posts?limit=3&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;

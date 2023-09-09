@@ -238,7 +238,9 @@ function showCurrentPost(postId) {
               <p>
                 ${post.body}
               </p>
-              <img class="w-100" src=${post.image} alt="" srcset="" />
+              <div class="d-flex justify-content-center">
+                <img class="w-50" src=${post.image} alt="" srcset="" />
+              </div>
               <h6 class="p-2 opacity-75">${post.created_at}</h6>
               <hr />
               <div class="d-flex align-items-center gap-2 p-2">

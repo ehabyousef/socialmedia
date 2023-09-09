@@ -11,7 +11,8 @@ const handleInfiniteScroll = () => {
       document.documentElement.clientHeight >=
     document.documentElement.scrollHeight - 10;
   if (endOfPage && currentpage < lastpage) {
-    getposts(currentpage++);
+    currentpage = currentpage + 1;
+    getposts(currentpage);
   }
 };
 window.addEventListener("scroll", handleInfiniteScroll);

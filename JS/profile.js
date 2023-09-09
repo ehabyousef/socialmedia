@@ -1,4 +1,5 @@
 let postCard = document.getElementById("post");
+let container = document.getElementById("container");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
 // function for butons

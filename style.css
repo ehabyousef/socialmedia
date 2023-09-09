@@ -365,6 +365,7 @@ a {
   box-shadow: 17px 18px 20px #454545;
   position: relative;
   z-index: 100000;
+  width: 45% !important;
 }
 .getback {
   animation: getback forwards 0.5s !important;

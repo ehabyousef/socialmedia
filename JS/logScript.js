@@ -26,15 +26,16 @@ function Registeruser() {
   formData.append("email", email);
   formData.append("password", password);
   formData.append("image", image);
+  toggleLodaer(true);
   axios
     .post("https://tarmeezacademy.com/api/v1/register", formData)
     .then(function (response) {
       console.log(response);
+      toggleLodaer(false);
       // localStorage.setItem("token", response.data.token);
       gotoLogin();
     })
     .catch(function (error) {
-
       showErrDetails(error.response.data.message);
     });
 }
@@ -50,14 +51,16 @@ function handleLogin(e) {
 }
 
 function loginUser() {
+  toggleLodaer(true);
   axios
     .post("https://tarmeezacademy.com/api/v1/login", logUser)
     .then(function (response) {
       console.log(response);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
-      // window.open('/home.html');
+
       window.location.href = "/home.html"; // Navigate to home.html
+      toggleLodaer(false);
     })
     .catch(function (error) {
       // alert(error.response.data.message);
@@ -78,4 +81,12 @@ function showErrDetails(errorMassage) {
   setTimeout(() => {
     document.getElementById("alrt-danger").innerHTML = "";
   }, 2000);
+}
+
+function toggleLodaer(show = true) {
+  if (show) {
+    document.getElementById("loader").style.visibility = "visible";
+  } else {
+    document.getElementById("loader").style.visibility = "hidden";
+  }
 }

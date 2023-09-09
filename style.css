@@ -423,6 +423,7 @@ a {
   overflow: hidden;
   position: fixed;
   z-index: 999999;
+  visibility: hidden;
 }
 .ldio-rpinwye8j0b {
   width: 80%;

@@ -378,6 +378,5 @@ function deletePost(postId) {
 
 // get user id
 function navigateUser(userid) {
-  // alert(userid);
   window.location = `profile.html?userid=${userid}`;
 }

@@ -17,11 +17,16 @@ function getUser() {
     .then((response) => {
       console.log(response.data);
       let user = response.data.data;
+      document.getElementById("profile_img").src = `${user.profile_image}`;
+      document.getElementById("profile_img-sm").src = `${user.profile_image}`;
       document.getElementById("name").innerHTML = user.name;
       document.getElementById("username").innerHTML = user.username;
       document.getElementById("email").innerHTML = user.email;
       document.getElementById("posts_count").innerHTML = user.posts_count;
       document.getElementById("comments_count").innerHTML = user.comments_count;
+      document.getElementById(
+        "user's-posts"
+      ).innerHTML = `${user.username}'s posts`;
     })
     .catch((error) => {
       console.log(error);

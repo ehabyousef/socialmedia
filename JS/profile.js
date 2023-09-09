@@ -2,6 +2,19 @@ let postCard = document.getElementById("post");
 let container = document.getElementById("container");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
+// function to get user data
+function getUser() {
+  axios;
+  axios
+    .get(`${baseurl}users/1`)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+getUser();
 // function for butons
 function showLogBtn() {
   let loginBtn = document.getElementById("loginBtn");

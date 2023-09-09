@@ -359,7 +359,7 @@ function deletePost(postId) {
     authorization: `Bearer ${token}`,
   };
   axios
-    .delete(`${baseurl}posts/${editPostId}`, {
+    .delete(`${baseurl}posts/${postId}`, {
       headers: headers,
     })
     .then((response) => {
@@ -367,7 +367,7 @@ function deletePost(postId) {
       const modal = document.getElementById("exampleModal");
       let modalins = bootstrap.Modal.getInstance(modal);
       modalins.hide();
-      getposts();
+      location.reload();
       console.log(response);
     })
     .catch((error) => {

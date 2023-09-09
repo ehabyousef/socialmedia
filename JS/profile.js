@@ -11,9 +11,9 @@ function getuserId() {
 
 // function to get profile data
 function getUser() {
-  const id = getuserId();
+  const profileId = getuserId();
   axios
-    .get(`${baseurl}users/${id}`)
+    .get(`https://tarmeezacademy.com/api/v1/users/${profileId}`)
     .then((response) => {
       console.log(response.data);
       let user = response.data.data;

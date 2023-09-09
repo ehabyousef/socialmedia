@@ -169,3 +169,98 @@ function showCurrentPost(postId) {
       console.log(error.response.data);
     });
 }
+function createComm(postid) {
+  let commentBody = document.getElementById("commentBody").value;
+  console.log("work");
+  let param = {
+    body: commentBody,
+  };
+  let token = localStorage.getItem("token");
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  axios
+    .post(`${baseurl}posts/${postid}/comments`, param, {
+      headers: headers,
+    })
+    .then((Response) => {
+      console.log(Response.data.data);
+      showCurrentPost(postid);
+    })
+    .catch(function (error) {
+      console.log(error);
+      showErrDetails(error.response.data.message);
+    });
+}
+let editPostId;
+function editPost(postId) {
+  axios
+    .get(`${baseurl}posts/${postId}`)
+    .then((Response) => {
+      let post = Response.data.data;
+      console.log(post);
+      const editModal = document.getElementById("editePost");
+      const body = document.getElementById("editpostBody");
+      // const image = document.getElementById("editpostimage");
+      // image.files[0] = image.files[post.image];
+      body.value = post.body;
+      editPostId = postId;
+      console.log(body.value);
+      editModal.classList.remove("BTN-Hide");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+function updatePost() {
+  const body = document.getElementById("editpostBody").value;
+  const image = document.getElementById("editpostimage").files[0];
+  const formData = new FormData();
+  formData.append("body", body);
+  formData.append("image", image);
+
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  formData.append("_method", "PUT");
+
+  axios
+    .post(`${baseurl}posts/${editPostId}`, formData, {
+      headers: headers,
+    })
+    .then((response) => {
+      document.getElementById("editePost").classList.add("BTN-Hide");
+      location.reload();
+      console.log(response);
+    })
+    .catch((error) => {
+      showErrDetails(error);
+      console.log(error);
+    });
+}
+function closeEditForm() {
+  document.getElementById("editePost").classList.add("BTN-Hide");
+}
+function deletePost(postId) {
+  let token = localStorage.getItem("token");
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  axios
+    .delete(`${baseurl}posts/${postId}`, {
+      headers: headers,
+    })
+    .then((response) => {
+      // document.getElementById("editePost").classList.add("BTN-Hide");
+      const modal = document.getElementById("exampleModal");
+      let modalins = bootstrap.Modal.getInstance(modal);
+      modalins.hide();
+      location.reload();
+      console.log(response);
+    })
+    .catch((error) => {
+      showErrDetails(error);
+      console.log(error);
+    });
+}

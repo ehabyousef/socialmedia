@@ -13,12 +13,95 @@ function getUser() {
       document.getElementById("name").innerHTML = user.name;
       document.getElementById("username").innerHTML = user.username;
       document.getElementById("email").innerHTML = user.email;
+      document.getElementById("posts_count").innerHTML = user.posts_count;
+      document.getElementById("comments_count").innerHTML = user.comments_count;
     })
     .catch((error) => {
       console.log(error);
     });
 }
 getUser();
+
+// get posts
+function getposts() {
+  axios
+    .get(`${baseurl}users/3370/posts`)
+    .then(function (response) {
+      // handle success
+      let posts = response.data.data;
+
+      for (const post of posts) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        let rightUser = user.id == post.author.id;
+        console.log(rightUser);
+        let editBtn = ``;
+        if (rightUser) {
+          editBtn = `
+          <div>
+            <div class="btn btn-outline-danger fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</div>
+            <div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    are you sure
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button onclick="deletePost(${post.id})" type="button" class="btn btn-danger">delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          `;
+        }
+        let card = `
+        <div  class="card rounded-4 my-4" >
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <div class=" d-flex align-items-center gap-3 ">
+              <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
+              <p class="mb-0">${post.author.username}</p>
+            </div>
+           ${editBtn}
+          </div>
+          <div onclick="showCurrentPost(${post.id})" class="card-body" style="cursor: pointer;">
+            <p>
+             ${post.body}
+            </p>
+            <img class="w-100" src=${post.image} alt="" srcset="" />
+            <h6 class="p-2 opacity-75">${post.created_at}</h6>
+            <hr />
+            <div class="d-flex align-items-center gap-2 p-2">
+              <i class="fa-solid fa-pen-fancy"></i>
+              <p class="mb-2">(${post.comments_count}) comments</p>
+              <div id="post-tag-${post.id}" class="tags mx-2"></div>
+            </div>
+          </div>
+        </div>
+        `;
+        postCard.innerHTML += card;
+        let currnetpostTag = `post-tag-${post.id}`;
+        document.getElementById(currnetpostTag).innerHTML = "";
+        const tags = post.tags;
+        for (const tag of tags) {
+          let con = `
+          <div class="btn btn-secondary">${tag.name}</div>
+        `;
+          document.getElementById(currnetpostTag).innerHTML += con;
+        }
+      }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+}
+getposts();
 // function for butons
 function showLogBtn() {
   let loginBtn = document.getElementById("loginBtn");

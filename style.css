@@ -142,13 +142,13 @@ a {
 }
 
 .form .form_control .input:focus,
-.form .form_control .input:valid {
+.form .form_control .input:invalid {
   box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
     inset 3px 3px 4px #0e0e0e, inset -3px -3px 4px #5f5e5e;
 }
 
 .form .form_control .input:focus + .label,
-.form .form_control .input:valid + .label {
+.form .form_control .input:invalid + .label {
   transform: translate(-150%, -50%);
 }
 
@@ -350,10 +350,11 @@ a {
 }
 
 #alrt-danger-error {
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000000000000;
 }
 /* show post  */
 #showPost {
@@ -363,7 +364,6 @@ a {
   transform: translate(-50%, -50%);
   box-shadow: 17px 18px 20px #454545;
   position: relative;
-
   z-index: 100000;
 }
 .getback {

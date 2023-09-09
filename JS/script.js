@@ -17,9 +17,23 @@ const handleInfiniteScroll = () => {
 
 // window.addEventListener("scroll", handleInfiniteScroll);
 
+if (!localStorage.getItem("user")) {
+  let container = document.getElementById("container");
+  container.innerHTML = `
+    <div
+      id="not-signed"
+        class="content h-100 w-100 d-flex flex-column gap-3 align-items-center justify-content-center"
+      >
+        <h4>you shold login first</h4>
+        <a href="login.html">
+          <div class="btn btn-outline-dark">LogIn</div> </a
+        >s
+      </div>
+  `;
+}
 function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=2&page=${page}`)
+    .get(`${baseurl}posts?limit=3&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;
@@ -30,7 +44,29 @@ function getposts(page = 1) {
         console.log(rightUser);
         let editBtn = ``;
         if (rightUser) {
-          editBtn = `<div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>`;
+          editBtn = `
+          <div>
+            <div class="btn btn-outline-danger fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</div>
+            <div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    are you sure
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button onclick="deletePost(${post.id})" type="button" class="btn btn-danger">delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          `;
         }
         let card = `
         <div  class="card rounded-4 my-4 w-75 " >
@@ -100,6 +136,7 @@ function logOutStorage() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
   showLogBtn();
+  location.reload();
 }
 
 // create new post
@@ -143,7 +180,7 @@ function showErrDetails(errorMassage) {
     let alertMessage = document.getElementById("alrt-danger-error");
     alertMessage.innerHTML = "";
     alertMessage.remove();
-  }, 1500);
+  }, 2000);
 }
 
 function closeForm() {
@@ -269,7 +306,7 @@ function createComm(postid) {
 let editPostId;
 function editPost(postId) {
   axios
-    .get(`https://tarmeezacademy.com/api/v1/posts/${postId}`)
+    .get(`${baseurl}posts/${postId}`)
     .then((Response) => {
       let post = Response.data.data;
       console.log(post);
@@ -300,7 +337,7 @@ function updatePost() {
   formData.append("_method", "PUT");
 
   axios
-    .post(`https://tarmeezacademy.com/api/v1/posts/${editPostId}`, formData, {
+    .post(`${baseurl}posts/${editPostId}`, formData, {
       headers: headers,
     })
     .then((response) => {
@@ -313,7 +350,28 @@ function updatePost() {
       console.log(error);
     });
 }
-
 function closeEditForm() {
   document.getElementById("editePost").classList.add("BTN-Hide");
+}
+function deletePost(postId) {
+  let token = localStorage.getItem("token");
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  axios
+    .delete(`${baseurl}posts/${editPostId}`, {
+      headers: headers,
+    })
+    .then((response) => {
+      // document.getElementById("editePost").classList.add("BTN-Hide");
+      const modal = document.getElementById("exampleModal");
+      let modalins = bootstrap.Modal.getInstance(modal);
+      modalins.hide();
+      getposts();
+      console.log(response);
+    })
+    .catch((error) => {
+      showErrDetails(error);
+      console.log(error);
+    });
 }

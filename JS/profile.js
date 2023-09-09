@@ -73,3 +73,99 @@ function showErrDetails(errorMassage) {
     alertMessage.remove();
   }, 2000);
 }
+
+function closeForm() {
+  document.getElementById("createPost").classList.add("BTN-Hide");
+}
+function openForm() {
+  document.getElementById("createPost").classList.remove("BTN-Hide");
+}
+let showPost = document.getElementById("showPost");
+function closePost() {
+  showPost.classList.remove("getback");
+  document.getElementById("container").style.opacity = "1";
+  document.getElementById("navBar").style.opacity = "1";
+}
+function showCurrentPost(postId) {
+  showPost.classList.add("getback");
+  document.getElementById("container").style.opacity = ".5";
+  document.getElementById("navBar").style.opacity = ".5";
+  // get api
+  console.log(postId);
+  axios
+    .get(`${baseurl}posts/${postId}`)
+    .then(function (response) {
+      let post = response.data.data;
+      console.log(post);
+      const comments = post.comments;
+      let commentData = ``;
+      for (const comment of comments) {
+        commentData += `
+             <div class="d-flex align-items-center gap-3 p-2">
+                <img class="rounded-circle" src=${comment.author.profile_image} alt="" /
+                width="50px" height="50px">
+                <b>${comment.author.name}</b>
+             </div>
+             <div class="p-4">
+                <p class="mb-0 p-2">
+                  ${comment.body}
+                </p>
+             </div>
+             
+        `;
+      }
+      let con = `
+        <div class="content">
+          <div onclick="closePost()" class="close">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+          <div class="card">
+            <div class="card-header d-flex align-items-center gap-3">
+              <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
+              <p class="mb-0">${post.author.username}</p>
+            </div>
+            <div class="card-body">
+              <p>
+                ${post.body}
+              </p>
+              <img class="w-100" src=${post.image} alt="" srcset="" />
+              <h6 class="p-2 opacity-75">${post.created_at}</h6>
+              <hr />
+              <div class="d-flex align-items-center gap-2 p-2">
+                <i class="fa-solid fa-pen-fancy"></i>
+                <p class="mb-2">(${post.comments_count}) comments</p>
+                <div id="post-tag-${post.id}" class="tags mx-2"></div>
+              </div>
+            </div>
+            <div class="com m-2" style="background-color: #f1f1f1">
+                ${commentData}
+            </div>
+             <div class="m-3 d-flex align-items-center flex-column">
+              <input
+                type="text"
+                name="comment"
+                id="commentBody"
+                placeholder="Add  Your Comment"
+                required
+              />
+              <div onclick="createComm(${postId})" class="btn btn-outline-dark w-25">send</div>
+            </div>
+          </div>
+        </div>
+      `;
+      showPost.innerHTML = con;
+      let currnetpostTag = `post-tag-${post.id}`;
+      document.getElementById(currnetpostTag).innerHTML = "";
+      const tags = post.tags;
+      for (const tag of tags) {
+        let con = `
+          <div class="btn btn-secondary">${tag.name}</div>
+        `;
+        document.getElementById(currnetpostTag).innerHTML += con;
+      }
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error.response.data);
+    });
+}

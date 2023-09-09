@@ -378,3 +378,8 @@ function deletePost(postId) {
       console.log(error);
     });
 }
+function navigateMyProfile() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  window.location = `profile.html?userid=${user.id}`;
+}

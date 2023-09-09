@@ -380,3 +380,9 @@ function deletePost(postId) {
 function navigateUser(userid) {
   window.location = `profile.html?userid=${userid}`;
 }
+function navigateMyProfile() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  return;
+  window.location = `profile.html?userid=${userid}`;
+}

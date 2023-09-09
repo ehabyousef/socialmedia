@@ -26,13 +26,11 @@ function getposts(page = 1) {
       lastpage = response.data.meta.last_page;
       for (const post of posts) {
         const user = JSON.parse(localStorage.getItem("user"));
-        let rightUser = user.id == post.id;
-
+        let rightUser = user.id == post.author.id;
+        console.log(rightUser);
         let editBtn = ``;
         if (rightUser) {
           editBtn = `<div onclick="editPost(${post.id})" class="btn btn-outline-info fw-bold">edit-post</div>`;
-        } else {
-          editBtn = "";
         }
         let card = `
         <div  class="card rounded-4 my-4 w-75 " >

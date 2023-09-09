@@ -32,6 +32,7 @@ if (!localStorage.getItem("user")) {
   `;
 }
 function getposts(page = 1) {
+  toggleLodaer(true);
   axios
     .get(`${baseurl}posts?limit=3&page=${page}`)
     .then(function (response) {
@@ -103,6 +104,7 @@ function getposts(page = 1) {
           document.getElementById(currnetpostTag).innerHTML += con;
         }
       }
+      toggleLodaer(false);
     })
     .catch(function (error) {
       // handle error
@@ -151,11 +153,13 @@ function createPost() {
   const headers = {
     authorization: `Bearer ${token}`,
   };
+  toggleLodaer(true);
   axios
     .post(`https://tarmeezacademy.com/api/v1/posts`, formData, {
       headers: headers,
     })
     .then((Response) => {
+      toggleLodaer(false);
       const modal = document.getElementById("createPost");
       modal.classList.add("BTN-Hide");
       location.reload();
@@ -387,9 +391,10 @@ function navigateMyProfile() {
   console.log(user);
   window.location = `profile.html?userid=${user.id}`;
 }
-function toogleLodaer(show=true) {
+function toggleLodaer(show = true) {
   if (show) {
-    document.getElementById("loader");
+    document.getElementById("loader").style.visibility = "visible";
+  } else {
+    document.getElementById("loader").style.visibility = "hidden";
   }
-
 }

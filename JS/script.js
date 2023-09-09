@@ -71,7 +71,7 @@ function getposts(page = 1) {
         let card = `
         <div  class="card rounded-4 my-4 w-75 " >
           <div class="card-header d-flex justify-content-between align-items-center">
-            <div class=" d-flex align-items-center gap-3 ">
+            <div onclick="navigateUser(${post.id})" class=" d-flex align-items-center gap-3 "  style="cursor: pointer;">
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
               <p class="mb-0">${post.author.username}</p>
             </div>
@@ -374,4 +374,10 @@ function deletePost(postId) {
       showErrDetails(error);
       console.log(error);
     });
+}
+
+// get user id
+function navigateUser(userid) {
+  // alert(userid);
+  window.location = `profile.html?userid=${userid}`;
 }

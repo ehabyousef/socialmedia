@@ -2,11 +2,18 @@ let postCard = document.getElementById("post");
 let container = document.getElementById("container");
 const baseurl = "https://tarmeezacademy.com/api/v1/";
 
-// function to get user data
+// get user id
+function getuserId() {
+  const urlparams = new URLSearchParams(window.location.search);
+  const id = urlparams.get("userid");
+  return id;
+}
+
+// function to get profile data
 function getUser() {
-  axios;
+  const id = getuserId();
   axios
-    .get(`${baseurl}users/1`)
+    .get(`${baseurl}users/${id}`)
     .then((response) => {
       console.log(response.data);
       let user = response.data.data;
@@ -24,8 +31,9 @@ getUser();
 
 // get posts
 function getposts() {
+  const profileId = getuserId();
   axios
-    .get(`${baseurl}users/3370/posts`)
+    .get(`${baseurl}users/${profileId}/posts`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;
@@ -63,7 +71,7 @@ function getposts() {
         let card = `
         <div  class="card rounded-4 my-4" >
           <div class="card-header d-flex justify-content-between align-items-center">
-            <div class=" d-flex align-items-center gap-3 ">
+            <div class=" d-flex align-items-center gap-3 " >
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />
               <p class="mb-0">${post.author.username}</p>
             </div>

@@ -9,6 +9,10 @@ function getUser() {
     .get(`${baseurl}users/1`)
     .then((response) => {
       console.log(response.data);
+      let user = response.data.data;
+      document.getElementById("name").innerHTML = user.name;
+      document.getElementById("username").innerHTML = user.username;
+      document.getElementById("email").innerHTML = user.email;
     })
     .catch((error) => {
       console.log(error);

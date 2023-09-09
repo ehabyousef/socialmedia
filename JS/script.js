@@ -387,3 +387,9 @@ function navigateMyProfile() {
   console.log(user);
   window.location = `profile.html?userid=${user.id}`;
 }
+function toogleLodaer(show=true) {
+  if (show) {
+    document.getElementById("loader");
+  }
+
+}

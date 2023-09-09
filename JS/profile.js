@@ -30,3 +30,46 @@ function logOutStorage() {
   showLogBtn();
   location.reload();
 }
+
+const token = localStorage.getItem("token");
+function createPost() {
+  const body = document.getElementById("postBody").value;
+  const image = document.getElementById("postimage").files[0];
+  const formData = new FormData();
+  formData.append("body", body);
+  formData.append("image", image);
+
+  const headers = {
+    authorization: `Bearer ${token}`,
+  };
+  axios
+    .post(`https://tarmeezacademy.com/api/v1/posts`, formData, {
+      headers: headers,
+    })
+    .then((Response) => {
+      const modal = document.getElementById("createPost");
+      modal.classList.add("BTN-Hide");
+      location.reload();
+    })
+    .catch(function (error) {
+      showErrDetails(error.response.data.errors.image[1]);
+    });
+}
+
+function showErrDetails(errorMassage) {
+  let container = document.getElementById("container");
+  container.innerHTML += `
+      <div
+          id="alrt-danger-error"
+          class="d-flex align-items-center justify-content-center"
+          
+        >
+        <div class="alert bg-danger fs-3 text-black" role="alert">${errorMassage}</div>
+      </div>
+  `;
+  setTimeout(() => {
+    let alertMessage = document.getElementById("alrt-danger-error");
+    alertMessage.innerHTML = "";
+    alertMessage.remove();
+  }, 2000);
+}

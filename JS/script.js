@@ -9,13 +9,13 @@ const handleInfiniteScroll = () => {
   const endOfPage =
     document.documentElement.scrollTop +
       document.documentElement.clientHeight >=
-    document.documentElement.scrollHeight - 5;
+    document.documentElement.scrollHeight - 10;
   if (endOfPage && currentpage < lastpage) {
     getposts(currentpage++);
   }
 };
 
-// window.addEventListener("scroll", handleInfiniteScroll);
+window.addEventListener("scroll", handleInfiniteScroll);
 
 if (!localStorage.getItem("user")) {
   let container = document.getElementById("container");
@@ -33,7 +33,7 @@ if (!localStorage.getItem("user")) {
 }
 function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=5&page=${page}`)
+    .get(`${baseurl}posts?limit=10&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;

@@ -33,7 +33,7 @@ if (!localStorage.getItem("user")) {
 }
 function getposts(page = 1) {
   axios
-    .get(`${baseurl}posts?limit=3&page=${page}`)
+    .get(`${baseurl}posts?limit=5&page=${page}`)
     .then(function (response) {
       // handle success
       let posts = response.data.data;

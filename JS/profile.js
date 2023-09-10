@@ -201,7 +201,7 @@ function closePost() {
   document.getElementById("navBar").style.opacity = "1";
 }
 function showCurrentPost(postId) {
-  showPost.classList.add("getback");
+ showPost.classList.add("getback");
   document.getElementById("container").style.opacity = ".5";
   document.getElementById("navBar").style.opacity = ".5";
   // get api

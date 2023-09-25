@@ -74,7 +74,7 @@ function getposts() {
           `;
         }
         let card = `
-        <div  class="card rounded-4 my-4" >
+        <div  class="card w-75 rounded-4 my-4" >
           <div class="card-header d-flex justify-content-between align-items-center">
             <div class=" d-flex align-items-center gap-3 " >
               <img class="avatar" src=${post.author.profile_image} alt="" srcset="" />

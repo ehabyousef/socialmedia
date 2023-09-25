@@ -37,6 +37,7 @@ function Registeruser() {
     })
     .catch(function (error) {
       showErrDetails(error.response.data.message);
+      toggleLodaer(false);
     });
 }
 
@@ -65,6 +66,7 @@ function loginUser() {
     .catch(function (error) {
       // alert(error.response.data.message);
       showErrDetails(error.response.data.message);
+      toggleLodaer(false);
     });
 }
 
